@@ -2,7 +2,7 @@
   "name": "react-monorepo-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/react-monorepo-e2e/src",
+  "sourceRoot": "tests/react-monorepo-e2e/src",
   "implicitDependencies": ["react-monorepo", "my-app"],
   "// targets": "to see all targets run: nx show project react-monorepo-e2e --web",
   "targets": {}

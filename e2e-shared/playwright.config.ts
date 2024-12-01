@@ -1,9 +1,5 @@
-import { defineConfig, devices } from '@playwright/test';
+import { devices, PlaywrightTestConfig } from '@playwright/test';
 import { nxE2EPreset } from '@nx/playwright/preset';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { workspaceRoot } from '@nx/devkit';
-
-// For CI, you may want to set BASE_URL to the deployed application.
 const baseURL = process.env['BASE_URL'] || 'http://localhost:3000';
 
 /**
@@ -12,10 +8,7 @@ const baseURL = process.env['BASE_URL'] || 'http://localhost:3000';
  */
 // require('dotenv').config();
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
-export default defineConfig({
+export const sharedE2eConfig: PlaywrightTestConfig = {
   ...nxE2EPreset(__filename, { testDir: './e2e' }),
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -66,4 +59,8 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     } */
   ],
-});
+};
+// /**
+//  * See https://playwright.dev/docs/test-configuration.
+//  */
+// export default defineConfig(sharedE2eConfig);

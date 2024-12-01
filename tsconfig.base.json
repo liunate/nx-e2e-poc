@@ -19,7 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "@e2e/shared": [
-        "e2e-shared/src/index.ts"
+        "e2e-shared/index.ts"
       ]
     }
   },

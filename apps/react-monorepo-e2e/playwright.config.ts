@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
-import { nxE2EPreset } from '@nx/playwright/preset';
+// import { nxE2EPreset } from '@nx/playwright/preset';
+import { sharedE2eConfig } from '@e2e/shared';
 
 import { workspaceRoot } from '@nx/devkit';
 
@@ -16,7 +17,9 @@ const baseURL = process.env['BASE_URL'] || 'http://localhost:4300';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  ...nxE2EPreset(__filename, { testDir: './src' }),
+  // ...nxE2EPreset(__filename, { testDir: './src' }),
+  ...sharedE2eConfig,
+  testDir: './src',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
